@@ -1,8 +1,38 @@
-// rafce react arrow function export component
 import React from 'react';
+import { CssBaseline } from '@mui/material';
+import { Route, Switch } from 'react-router-dom';
 
-const App = () => (
-  <div>App</div>
-);
+import useStyles from './styles';
+
+import { Actors, MovieInformation, Movies, NavBar, Profile } from '.';
+
+const App = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <NavBar />
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Switch>
+          <Route exath path="/movie/:id">
+            <MovieInformation />
+          </Route>
+          <Route exath path="/actors/:id">
+            <Actors />
+          </Route>
+          <Route exath path="/">
+            <Movies />
+          </Route>
+          <Route exath path="/profile/:id">
+            <Profile />
+          </Route>
+        </Switch>
+      </main>
+    </div>
+  );
+};
+// rafce react arrow function export component
 
 export default App;
